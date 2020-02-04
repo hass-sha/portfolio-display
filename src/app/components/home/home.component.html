@@ -1,0 +1,193 @@
+<div class="container main" id="home" [ngClass]="{'urdu': onUrdu}">
+  <div class="row">
+    <div class="col-5 visible-lg card card-shadow">
+      <img src="../../../assets/images/self.jpg" alt="Muhammad Hassan" class="img-fluid">
+    </div>
+    <div class="visible-lg col-1"></div>
+    <div class="col-12 col-lg-6 title text-center">
+      <h1>{{ 'home.intro.hi' | translate }} <span
+        class="name">{{ 'home.intro.name' | translate }}</span> {{ 'home.intro.here' | translate }}</h1>
+      <h2>{{ 'home.intro.detail' | translate }}</h2>
+    </div>
+    <div class="col-1 hidden-lg mtop-5"></div>
+    <div class="col-10 hidden-lg mtop-5">
+      <img src="../../../assets/images/self.jpg" alt="Muhammad Hassan" class="img-fluid card card-shadow">
+    </div>
+    <div class="col-1 hidden-lg mtop-5"></div>
+  </div>
+</div>
+
+<div class="container-fluid projects" id="projects" [ngClass]="{'urdu': onUrdu}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 title text-center">
+        <h1>{{ 'home.projects.title' | translate }}</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6" *ngFor="let project of projectThumb">
+        <div class="card card-shadow">
+          <div class="card-body">
+            <img class="img-fluid" [src]="project.url" [alt]="helper.getTranslatedData(project.altText)">
+          </div>
+          <div class="card-footer text-center">
+            <h4>{{ helper.getTranslatedData(project.name) }}</h4>
+            <h5>{{ helper.getTranslatedData(project.technologies) }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid services" [ngClass]="{'french': onFrench, 'urdu': onUrdu}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 title text-center">
+        <h1>{{ 'home.services.title' | translate }}</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4" *ngFor="let service of (services | reverseOnUrdu:onUrdu)">
+        <div class="card">
+          <div class="card-title text-center">
+            <i class="material-icons">{{ service.icon }}</i>
+          </div>
+          <div class="card-body text-center">
+            <h5>{{ helper.getTranslatedData(service.description) }}</h5>
+          </div>
+          <div class="card-footer text-center">
+            <h2><strong>{{ helper.getTranslatedData(service.name) }}</strong></h2>
+            <hr>
+            <h5 class="tools-label"><strong>{{ helper.getTranslatedData(service.toolsType) }}</strong></h5>
+            <h5 *ngFor="let tool of helper.getTranslatedData(service.tools)">{{ tool }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid lets-talk" id="contact" [ngClass]="{'urdu': onUrdu}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 title text-center">
+        <h1>{{ 'home.letsTalk.title' | translate }}</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="card">
+          <div class="card-body text-center">
+            <h2>{{ 'home.letsTalk.detail' | translate }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center justify-content-center">
+            <button class="btn btn-primary contact-me" type="button" data-toggle="modal" data-target="#contactModal"
+                    (click)="triggerRecaptcha()">
+              {{ 'home.letsTalk.contactMe' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row social-icons">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-2" *ngFor="let icon of icons">
+            <div class="icon-border">
+              <a [href]="icon.url" target="_blank"><i class="icon-size" [ngStyle]="getIcon(icon.name)"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contact me modal"
+     aria-hidden="true" [ngClass]="{'urdu': onUrdu}" #contactModal>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" (clickOutside)="onModalClose()">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalTitle"><strong>{{ 'home.contactModal.title' | translate }}</strong></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" (click)="onCloseContactModal()">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <form [formGroup]="contactForm" (ngSubmit)="validateUser()">
+              <div class="row">
+                <div class="col-12 col-lg-6">
+                  <div class="form-group" requiredDataCheck>
+                    <label for="firstName">{{ 'home.contactModal.firstName' | translate }} <span>
+                      {{ 'home.contactModal.mandatory' | translate }}</span>
+                    </label>
+                    <input type="text" id="firstName" [formControlName]="'firstName'" class="form-control">
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="form-group" requiredDataCheck>
+                    <label for="lastName">{{ 'home.contactModal.lastName' | translate }} <span>
+                      {{ 'home.contactModal.mandatory' | translate }}</span>
+                    </label>
+                    <input type="text" id="lastName" [formControlName]="'lastName'" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-lg-6">
+                  <div class="form-group" requiredDataCheck>
+                    <label for="email">{{ 'home.contactModal.email' | translate }} <span>
+                      {{ 'home.contactModal.mandatory' | translate }}</span>
+                    </label>
+                    <input type="email" id="email" [formControlName]="'email'" class="form-control">
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="form-group" requiredDataCheck>
+                    <label for="subject">{{ 'home.contactModal.subject' | translate }} <span>
+                      {{ 'home.contactModal.mandatory' | translate }}</span>
+                    </label>
+                    <input type="text" id="subject" [formControlName]="'subject'" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group" requiredDataCheck>
+                    <label for="message">{{ 'home.contactModal.message' | translate }} <span>
+                      {{ 'home.contactModal.mandatory' | translate }}</span>
+                    </label>
+                    <textarea name="message" id="message" rows="10" [formControlName]="'message'"
+                              class="form-control"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-controls">
+                <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal"
+                        (click)="onCloseContactModal()"
+                        forceClick [trigger]="closeContactModal">{{ 'home.contactModal.close' | translate }}</button>
+                <button type="submit" class="btn btn-primary send-email"
+                        [disabled]="!contactForm.valid">{{ 'home.contactModal.sendEmail' | translate }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="captcha" ngRecaptcha [key]="siteKey" [config]="recaptcahConf" [lang]="getLanguage()"
+       (success)="recaptchaResolved($event)" (expired)="recaptchaExpired()" *ngIf="recaptchaStatus"></div>
+</div>
+

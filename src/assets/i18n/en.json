@@ -1,0 +1,38 @@
+{
+  "home": {
+    "contactModal": {
+      "close": "Close",
+      "email": "Email Address",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "mandatory": "*",
+      "message": "Message",
+      "sendEmail": "Send!",
+      "subject": "Subject",
+      "title": "Get in Touch."
+    },
+    "intro": {
+      "detail": "I'm a Full Stack Software Developer based out of Toronto, Canada with a background in Computer Engineering. I am experienced in developing web applications as well as building robust backend solutions.",
+      "here": "here!",
+      "hi": "Hey,",
+      "name": "Hassan"
+    },
+    "letsTalk": {
+      "title": "Lets Talk",
+      "detail": "Always open to new ideas and opportunities. Want to collaborate on a project? Need help with a solution?",
+      "contactMe": "Contact Me"
+    },
+    "projects": {
+      "title": "Ongoing Projects"
+    },
+    "services": {
+      "title": "Services"
+    }
+  },
+  "header": {
+    "inactiveLinkModal": {
+      "message": "I'm still building this section. Please come back to revisit soon. Sorry for the inconvenience.",
+      "title": "Sorry! It's not you, It's me."
+    }
+  }
+}

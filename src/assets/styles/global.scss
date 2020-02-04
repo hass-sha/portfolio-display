@@ -1,0 +1,55 @@
+//Global Colors
+$primary-color: #447AD0;
+$background-color: #21252c;
+
+.visible-lg {
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+.hidden-lg {
+  @media (min-width: 992px) {
+    display: none;
+  }
+}
+
+.modal-content {
+  background-color: $background-color;
+  -webkit-box-shadow: 0 0 0.7rem #D6D6D6 !important;
+  -moz-box-shadow: 0 0 0.7rem #D6D6D6 !important;
+  box-shadow: 0 0 0.7rem #D6D6D6 !important;
+
+  .modal-header {
+    border-bottom: 1px solid lightgrey;
+
+    .modal-title {
+      color: $primary-color;
+    }
+
+    .close {
+      color: white;
+      text-shadow: 0 1px 0 #D6D6D6;
+    }
+  }
+}
+
+.urdu {
+  .modal-header {
+    direction: rtl;
+
+    .modal-title {
+      float: right;
+    }
+
+    .close {
+      margin-left: -1rem;
+      float: left;
+    }
+  }
+
+  .modal-body {
+    text-align: right;
+    direction: rtl;
+  }
+}

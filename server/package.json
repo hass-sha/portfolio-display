@@ -1,0 +1,45 @@
+{
+  "name": "mhzone-server",
+  "version": "1.0.0",
+  "description": "backend server to support angular 7 mhzone front end",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
+    "nodemon-local": "nodemon --watch src --ext ts --exec npm start -V",
+    "nodemon-cast": "nodemon --watch src --ext ts --exec npm start -V 10.0.0.237",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend",
+    "mhzone",
+    "server"
+  ],
+  "author": "Muhammad Hassan",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
+    "@types/express-session": "^1.15.11",
+    "@types/mongoose": "^5.3.7",
+    "@types/morgan": "^1.7.35",
+    "@types/passport": "^1.0.0",
+    "@types/passport-local": "^1.0.33",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.4.3",
+    "morgan": "~1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/node": "^10.12.18",
+    "nodemon": "^1.18.9",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "home": {
+    "contactModal": {
+      "close": "Fermer",
+      "email": "Adresse Électronique",
+      "firstName": "Prénom",
+      "lastName": "Nom De Famille",
+      "mandatory": "*",
+      "message": "Message",
+      "sendEmail": "Envoyer!",
+      "subject": "Assujettir",
+      "title": "Entrer en Contact."
+    },
+    "intro": {
+      "detail": "Je suis un développeur de logiciels Full Stack basé à Toronto, au Canada, avec une formation en génie informatique. J'ai de l'expérience dans le développement d'applications Web ainsi que dans la création de solutions dorsales robustes.",
+      "here": "ici!",
+      "hi": "Bonjour,",
+      "name": "Hassan"
+    },
+    "letsTalk": {
+      "title": "Parlons",
+      "detail": "Toujours ouvert aux nouvelles idées et opportunités. Envie de collaborer sur un projet? Besoin d'aide avec un Solution?",
+      "contactMe": "Entrer en Contact"
+    },
+    "projects": {
+      "title": "Projets En Cours"
+    },
+    "services": {
+      "title": "Services Fournis"
+    }
+  },
+  "header": {
+    "inactiveLinkModal": {
+      "message": "Je construis toujours cette section. S'il vous plaît revenir pour revenir bientôt. Désolé pour le dérangement.",
+      "title": "Pardon! Ce n'est pas toi c'est moi."
+    }
+  }
+}
